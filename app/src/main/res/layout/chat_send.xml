@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:textSize="12sp"
+        android:padding="4dp"
+        android:textColor="@android:color/white"
+        android:background="@drawable/chat_time_bg"
+        android:id="@+id/chat_send_time"
+        android:layout_width="wrap_content"
+        android:visibility="gone"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="4月12日 早上07:51" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
+
+        <ImageView
+            android:layout_alignParentEnd="true"
+            android:id="@+id/iv_send_picture"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/icon"
+            android:scaleType="centerCrop" />
+
+        <TextView
+            android:id="@+id/tv_send_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="15dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:layout_toStartOf="@id/iv_send_picture"
+            android:background="@drawable/chat_tv_send"
+            android:textColor="#191919"
+            android:text="hello" />
+    </RelativeLayout>
+
+</LinearLayout>

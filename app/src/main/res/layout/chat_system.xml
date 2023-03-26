@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <TextView
+        android:textSize="12sp"
+        android:padding="4dp"
+        android:textColor="@android:color/white"
+        android:background="@drawable/chat_time_bg"
+        android:id="@+id/chat_system_time"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="4月12日 早上07:51" />
+    <TextView
+        android:id="@+id/tv_system_content"
+        android:textColor="@android:color/white"
+        android:background="@drawable/chat_time_bg"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        android:text="eeee"
+        android:textSize="14sp"
+        android:paddingStart="5dp"
+        android:paddingEnd="5dp"
+        android:paddingTop="2dp"
+        android:paddingBottom="2dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"/>
+
+</LinearLayout>
