@@ -2,6 +2,7 @@ package org.yameida.asrassistant.utils
 
 import com.blankj.utilcode.util.GsonUtils
 import com.blankj.utilcode.util.LogUtils
+import com.blankj.utilcode.util.ToastUtils
 import com.google.gson.JsonObject
 import okhttp3.*
 import org.yameida.asrassistant.config.Config
@@ -9,6 +10,7 @@ import org.yameida.asrassistant.model.Message
 import org.yameida.asrassistant.model.StreamAiAnswer
 import java.io.BufferedReader
 import java.io.IOException
+import java.lang.Exception
 
 
 object HttpUtil {
@@ -31,23 +33,30 @@ object HttpUtil {
             .build()
         OkHttpUtil.okHttpClient.newCall(request).enqueue(object : Callback {
             override fun onFailure(call: Call, e: IOException) {
+                e.printStackTrace()
+                ToastUtils.showLong("网络请求出错 请检查网络")
             }
             override fun onResponse(call: Call, response: Response) {
-                val responseBody = response.body()
-                if (responseBody != null) {
-                    val bufferedReader = BufferedReader(responseBody.charStream())
-                    var line = bufferedReader.readLine()
-                    var index = 0
-                    val sb = StringBuilder()
-                    while (line != null) {
-                        val msg = convert(line, "1", index++)
-                        if (msg != null) {
-                            sb.append(msg.content)
-                            callback.onCallBack(sb.toString(), false)
+                try {
+                    val responseBody = response.body()
+                    if (responseBody != null) {
+                        val bufferedReader = BufferedReader(responseBody.charStream())
+                        var line = bufferedReader.readLine()
+                        var index = 0
+                        val sb = StringBuilder()
+                        while (line != null) {
+                            val msg = convert(line, "1", index++)
+                            if (msg != null) {
+                                sb.append(msg.content)
+                                callback.onCallBack(sb.toString(), false)
+                            }
+                            line = bufferedReader.readLine()
                         }
-                        line = bufferedReader.readLine()
+                        callback.onCallBack(sb.toString(), true)
                     }
-                    callback.onCallBack(sb.toString(), true)
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                    ToastUtils.showLong("网络请求出错 请检查配置")
                 }
             }
         })

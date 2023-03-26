@@ -35,7 +35,7 @@ class MyApplication : Application() {
         // 设置你申请的应用appid,请勿在'='与appid之间添加空格及空转义符
         // 注意： appid 必须和下载的SDK保持一致，否则会出现10407错误
         LogUtils.e("初始化讯飞")
-        val createUtility = SpeechUtility.createUtility(this, "appid=" + "5d50e59e")
+        val createUtility = SpeechUtility.createUtility(this, "appid=" + "")
         LogUtils.e("初始化讯飞 " + createUtility)
     }
 
