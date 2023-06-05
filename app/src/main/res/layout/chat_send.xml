@@ -29,7 +29,7 @@
             android:background="@drawable/icon"
             android:scaleType="centerCrop" />
 
-        <TextView
+        <EditText
             android:id="@+id/tv_send_content"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -41,6 +41,8 @@
             android:paddingBottom="10dp"
             android:layout_toStartOf="@id/iv_send_picture"
             android:background="@drawable/chat_tv_send"
+            android:editable="false"
+            android:textIsSelectable="true"
             android:textColor="#191919"
             android:text="hello" />
     </RelativeLayout>

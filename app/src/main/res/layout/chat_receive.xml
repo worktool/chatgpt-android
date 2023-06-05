@@ -41,7 +41,7 @@
             android:text="一叶知秋"
             />
 
-        <TextView
+        <EditText
             android:id="@+id/tv_receive_content"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -54,6 +54,8 @@
             android:paddingTop="10dp"
             android:paddingEnd="10dp"
             android:paddingBottom="10dp"
+            android:editable="false"
+            android:textIsSelectable="true"
             android:text="hello"
             android:textColor="#191919"
             android:textSize="15sp" />

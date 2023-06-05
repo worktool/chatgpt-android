@@ -5,5 +5,5 @@ object Config {
     /**
      * input your ChatGPT ApiKey
      */
-    const val apiKey = ""
+    const val apiKey = "sk-"
 }
