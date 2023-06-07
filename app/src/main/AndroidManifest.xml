@@ -43,6 +43,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="org.yameida.asrassistant.activity.ConfigActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/AppTheme">
+        </activity>
 
     </application>
 

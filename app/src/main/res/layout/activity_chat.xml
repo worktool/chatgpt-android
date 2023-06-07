@@ -11,17 +11,18 @@
         android:layout_alignParentBottom="true">
 
         <Button
+            android:visibility="gone"
             android:id="@+id/bt_asr"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
             android:background="@drawable/comment_red_btn"
             android:paddingTop="10dp"
             android:paddingBottom="15dp"
-            android:layout_alignParentBottom="true"
-            android:textSize="26sp"
-            android:textStyle="bold"
+            android:text="按住 说话"
             android:textColor="@color/white"
-            android:text="按住 说话" />
+            android:textSize="26sp"
+            android:textStyle="bold" />
 
         <ImageView
             android:id="@+id/bt_switch"
@@ -32,7 +33,6 @@
             android:src="@drawable/switch1283" />
 
         <RelativeLayout
-            android:visibility="gone"
             android:id="@+id/chat_bottom"
             android:layout_width="match_parent"
             android:layout_height="60dp"

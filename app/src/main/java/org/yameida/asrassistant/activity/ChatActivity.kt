@@ -2,6 +2,7 @@ package org.yameida.asrassistant.activity
 
 import android.Manifest
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.view.MotionEvent
@@ -69,6 +70,7 @@ class ChatActivity : FragmentActivity() {
         }
         initView()
         requestAudioPermission()
+        startActivity(Intent(this, ConfigActivity::class.java))
     }
 
     private fun requestAudioPermission() {

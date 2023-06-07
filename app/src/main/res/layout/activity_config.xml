@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+
+    <RelativeLayout
+        android:id="@+id/rl_bar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="@color/color_dashen"
+            android:text="@string/app_name"
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/list_divider_line"
+            android:layout_alignParentBottom="true"
+            />
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/rl_bar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/background"
+            android:orientation="vertical">
+
+            <!-- 配置 -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/setting_start_padding"
+                android:paddingTop="@dimen/setting_vertical_padding"
+                android:paddingEnd="@dimen/setting_end_start_padding"
+                android:paddingBottom="@dimen/setting_vertical_padding"
+                android:text="配置"
+                android:textColor="@color/float_time_color"
+                android:textSize="@dimen/setting_end_font_size"
+                android:textStyle="bold" />
+
+            <RelativeLayout
+                android:id="@+id/rl_api_key"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/setting_start_padding"
+                android:paddingTop="@dimen/setting_vertical_padding"
+                android:paddingEnd="@dimen/setting_end_padding"
+                android:paddingBottom="@dimen/setting_vertical_padding">
+
+                <ImageView
+                    android:id="@+id/iv_rec_api_key_"
+                    android:layout_width="@dimen/setting_start_image_width"
+                    android:layout_height="@dimen/setting_start_image_width"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/settings_language" />
+
+                <TextView
+                    android:id="@+id/tv_select_api_key"
+                    android:layout_width="@dimen/setting_end_font_width"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/setting_end_start_padding"
+                    android:textColor="@color/float_time_color"
+                    android:textSize="@dimen/setting_end_font_size"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/setting_start_padding"
+                    android:layout_toStartOf="@id/tv_select_api_key"
+                    android:layout_toEndOf="@id/iv_rec_api_key_"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="ChatGPT API_KEY"
+                        android:textColor="@color/color_333333"
+                        android:textSize="@dimen/setting_start_font_size" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="设置ChatGPT API_KEY"
+                        android:textColor="@color/color_999999"
+                        android:textSize="@dimen/setting_end_font_size" />
+
+                </LinearLayout>
+            </RelativeLayout>
+
+            <!-- 其他 -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/setting_start_padding"
+                android:paddingTop="@dimen/setting_vertical_padding"
+                android:paddingEnd="@dimen/setting_end_start_padding"
+                android:paddingBottom="@dimen/setting_vertical_padding"
+                android:text="其他"
+                android:textColor="@color/float_time_color"
+                android:textSize="@dimen/setting_end_font_size"
+                android:textStyle="bold" />
+
+            <RelativeLayout
+                android:id="@+id/rl_donate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/setting_start_padding"
+                android:paddingTop="@dimen/setting_vertical_padding"
+                android:paddingEnd="@dimen/setting_end_padding"
+                android:paddingBottom="@dimen/setting_vertical_padding">
+
+                <ImageView
+                    android:id="@+id/iv_rec_donate_"
+                    android:layout_width="@dimen/setting_start_image_width"
+                    android:layout_height="@dimen/setting_start_image_width"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/settings_rate_us" />
+
+                <TextView
+                    android:id="@+id/tv_select_donate"
+                    android:layout_width="@dimen/setting_end_font_width"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/setting_end_start_padding"
+                    android:textColor="@color/float_time_color"
+                    android:textSize="@dimen/setting_end_font_size"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/setting_start_padding"
+                    android:layout_toStartOf="@id/tv_select_donate"
+                    android:layout_toEndOf="@id/iv_rec_donate_"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="赞助我们"
+                        android:textColor="@color/color_333333"
+                        android:textSize="@dimen/setting_start_font_size" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="还有机会成为我们的内测用户体验新功能"
+                        android:textColor="@color/color_999999"
+                        android:textSize="@dimen/setting_end_font_size" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_share"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/setting_start_padding"
+                android:paddingTop="@dimen/setting_vertical_padding"
+                android:paddingEnd="@dimen/setting_end_padding"
+                android:paddingBottom="@dimen/setting_vertical_padding">
+
+                <ImageView
+                    android:id="@+id/iv_rec_share_"
+                    android:layout_width="@dimen/setting_start_image_width"
+                    android:layout_height="@dimen/setting_start_image_width"
+                    android:layout_centerVertical="true"
+                    android:scaleX="1.1"
+                    android:scaleY="1.1"
+                    android:src="@drawable/settings_share" />
+
+                <TextView
+                    android:id="@+id/tv_select_share"
+                    android:layout_width="@dimen/setting_end_font_width"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/setting_end_start_padding"
+                    android:textColor="@color/float_time_color"
+                    android:textSize="@dimen/setting_end_font_size"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/setting_start_padding"
+                    android:layout_toStartOf="@id/tv_select_share"
+                    android:layout_toEndOf="@id/iv_rec_share_"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="分享应用"
+                        android:textColor="@color/color_333333"
+                        android:textSize="@dimen/setting_start_font_size" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="把本应用分享给其他人"
+                        android:textColor="@color/color_999999"
+                        android:textSize="@dimen/setting_end_font_size" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>
