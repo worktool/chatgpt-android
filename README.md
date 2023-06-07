@@ -32,6 +32,9 @@
   详请参考科大讯飞文档中心
 ```
 
+如果已经有 ChatGPT ApiKey，直接下载应用可在应用内配置。
+APP 下载地址：https://github.com/worktool/chatgpt-android/releases/download/1.1/chatgpt_1.1.apk
+
 ## 功能展示
 使用 OkHttp 进行流式请求 ChatGTP API 并即时更新客户端UI。
 
