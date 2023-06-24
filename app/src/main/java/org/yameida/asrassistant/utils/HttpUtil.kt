@@ -3,7 +3,6 @@ package org.yameida.asrassistant.utils
 import com.blankj.utilcode.util.GsonUtils
 import com.blankj.utilcode.util.LogUtils
 import com.blankj.utilcode.util.ToastUtils
-import com.google.gson.JsonObject
 import okhttp3.*
 import org.yameida.asrassistant.config.Config
 import org.yameida.asrassistant.model.Message
@@ -11,9 +10,17 @@ import org.yameida.asrassistant.model.StreamAiAnswer
 import java.io.BufferedReader
 import java.io.IOException
 import java.lang.Exception
+import kotlin.collections.ArrayList
 
 
 object HttpUtil {
+
+    val history: ArrayList<Message> = arrayListOf()
+    val gptRequestJson = hashMapOf(
+        Pair("model", "gpt-3.5-turbo-16k"),
+        Pair("stream", true),
+        Pair("messages", history)
+    )
 
     /**
      * ChatGPT
@@ -21,13 +28,15 @@ object HttpUtil {
     fun chat(send: String, callback: CallBack) {
         val url = "http://proxy.chat.carlife.host/v1/chat/completions"
         val apiKey = "Bearer ${Config.apiKey}"
-        val jsonObject = JsonObject()
-        jsonObject.addProperty("model", "gpt-3.5-turbo")
-        val body = RequestBody.create(MediaType.parse("application/json"), "{\n" +
-                "  \"model\": \"gpt-3.5-turbo\",\n" +
-                "  \"stream\": true,\n" +
-                "  \"messages\": [{\"role\": \"user\", \"content\": \"$send!\"}]\n" +
-                "}")
+        if (!Config.useContext) {
+            history.clear()
+        }
+        history.add(Message().apply {
+            role = "user"
+            content = send
+        })
+        LogUtils.d("gptRequestJson", GsonUtils.toJson(gptRequestJson))
+        val body = RequestBody.create(MediaType.parse("application/json"), GsonUtils.toJson(gptRequestJson))
         val request: Request = Request.Builder().url(url).method("POST", body)
             .addHeader("Authorization", apiKey)
             .build()
@@ -40,6 +49,11 @@ object HttpUtil {
                 try {
                     val responseBody = response.body()
                     if (responseBody != null) {
+                        val message = Message().apply {
+                            role = "assistant"
+                            content = ""
+                        }
+                        history.add(message)
                         val bufferedReader = BufferedReader(responseBody.charStream())
                         var line = bufferedReader.readLine()
                         var index = 0
@@ -48,6 +62,7 @@ object HttpUtil {
                             val msg = convert(line, "1", index++)
                             if (msg != null) {
                                 sb.append(msg.content)
+                                message.content = sb.toString()
                                 callback.onCallBack(sb.toString(), false)
                             }
                             line = bufferedReader.readLine()
@@ -69,27 +84,32 @@ object HttpUtil {
         msg.id = questionId
         if ("data: [DONE]" != answer) {
             val beanStr = answer.replaceFirst("data: ", "", false)
-            val aiAnswer = GsonUtils.fromJson(beanStr, StreamAiAnswer::class.java) ?: return null
-            val choices = aiAnswer.choices
-            if (choices.isEmpty()) {
-                return null
-            }
-            val stringBuffer = StringBuffer()
-            for (choice in choices) {
-                if (choice.finish_reason != "stop") {
-                    if (choice.delta.content != null) {
-                        stringBuffer.append(choice.delta.content)
-                    } else {
+            try {
+                val aiAnswer =
+                    GsonUtils.fromJson(beanStr, StreamAiAnswer::class.java) ?: return null
+                val choices = aiAnswer.choices
+                if (choices.isEmpty()) {
+                    return null
+                }
+                val stringBuffer = StringBuffer()
+                for (choice in choices) {
+                    if (choice.finish_reason != "stop") {
+                        if (choice.delta.content != null) {
+                            stringBuffer.append(choice.delta.content)
+                        } else {
+                            return null
+                        }
+                    }
+                }
+                msg.content = stringBuffer.toString()
+                if (index == 0) {
+                    if (msg.content == "\n\n") {
+                        LogUtils.e("发现开头有两次换行,移除两次换行")
                         return null
                     }
                 }
-            }
-            msg.content = stringBuffer.toString()
-            if (index == 0) {
-                if (msg.content == "\n\n") {
-                    LogUtils.e("发现开头有两次换行,移除两次换行")
-                    return null
-                }
+            } catch (e: Exception) {
+                e.printStackTrace()
             }
         } else {
             msg.type = "stop"

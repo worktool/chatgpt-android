@@ -18,6 +18,7 @@ import org.yameida.asrassistant.R
 import org.yameida.asrassistant.utils.AsrUtil
 import org.yameida.asrassistant.utils.HttpUtil
 import org.yameida.asrassistant.adapter.MyPagerAdapter
+import org.yameida.asrassistant.config.Config
 import org.yameida.asrassistant.model.ChatMessageBean
 import java.text.SimpleDateFormat
 import java.util.*
@@ -42,7 +43,7 @@ class ChatActivity : FragmentActivity() {
                         addData(ChatMessageBean(ChatMessageBean.TYPE_SYSTEM, null, null, sdf.format(Date())))
                     }
                     addData(ChatMessageBean(ChatMessageBean.TYPE_SEND, "", "", result))
-                    val receivedMessage = ChatMessageBean(ChatMessageBean.TYPE_RECEIVED, "小助手", "", "请稍等...")
+                    val receivedMessage = ChatMessageBean(ChatMessageBean.TYPE_RECEIVED, Config.assistantName, "", "请稍等...")
                     addData(receivedMessage)
                     lastFragment?.rv_chat?.scrollToPosition(mData.size - 1)
                     lastFragment?.rv_chat?.clearOnScrollListeners()
@@ -70,7 +71,14 @@ class ChatActivity : FragmentActivity() {
         }
         initView()
         requestAudioPermission()
-        startActivity(Intent(this, ConfigActivity::class.java))
+        if (Config.apiKey.isNullOrEmpty()) {
+            startActivity(Intent(this, ConfigActivity::class.java))
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        tv_title.text = Config.assistantName
     }
 
     private fun requestAudioPermission() {
@@ -129,7 +137,7 @@ class ChatActivity : FragmentActivity() {
                         addData(ChatMessageBean(ChatMessageBean.TYPE_SYSTEM, null, null, sdf.format(Date())))
                     }
                     addData(ChatMessageBean(ChatMessageBean.TYPE_SEND, "", "", result))
-                    val receivedMessage = ChatMessageBean(ChatMessageBean.TYPE_RECEIVED, "小助手", "", "请稍等...")
+                    val receivedMessage = ChatMessageBean(ChatMessageBean.TYPE_RECEIVED, Config.assistantName, "", "请稍等...")
                     addData(receivedMessage)
                     lastFragment?.rv_chat?.scrollToPosition(mData.size - 1)
                     lastFragment?.rv_chat?.clearOnScrollListeners()
@@ -156,7 +164,9 @@ class ChatActivity : FragmentActivity() {
             }
             chat_content.text.clear()
         }
-
+        ll_settings.setOnClickListener {
+            startActivity(Intent(this, ConfigActivity::class.java))
+        }
     }
 
 }

@@ -9,8 +9,8 @@ android {
         applicationId "org.yameida.asrassistant"
         minSdkVersion 24
         targetSdkVersion 30
-        versionCode 2561
-        versionName "2.5.6"
+        versionCode 1201
+        versionName "1.2.1"
     }
 
     buildTypes {

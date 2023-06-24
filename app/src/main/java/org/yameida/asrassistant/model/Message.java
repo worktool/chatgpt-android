@@ -1,8 +1,5 @@
 package org.yameida.asrassistant.model;
 
-/**
- * @author genxm
- */
 public class Message {
 
   public String id;
