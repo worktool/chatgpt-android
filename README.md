@@ -33,7 +33,7 @@
 ```
 
 如果已经有 ChatGPT ApiKey，直接下载应用可在应用内配置。
-APP 下载地址：https://github.com/worktool/chatgpt-android/releases/download/1.1/chatgpt_1.1.apk
+APP 下载地址：https://github.com/worktool/chatgpt-android/releases/download/1.2.1/chatgpt-android1.2.1.apk
 
 ## 功能展示
 使用 OkHttp 进行流式请求 ChatGTP API 并即时更新客户端UI。
@@ -62,3 +62,14 @@ APP 下载地址：https://github.com/worktool/chatgpt-android/releases/download
 Email: gallonyin@163.com
 
 开发者交流群: 741127157
+
+## 版本更新
+
+tag 1.2.1 2023-06-24 配置开启上下文;配置选择GPT模型;修改小助手昵称
+
+tag 1.1 2023-06-07 增加apikey配置项
+
+tag 1.0 2023-03-26 首次可用版本更新
+
+
+
