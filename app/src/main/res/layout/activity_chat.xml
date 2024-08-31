@@ -58,15 +58,19 @@
                 android:layout_height="41dp"
                 android:layout_centerVertical="true"
                 android:background="@drawable/wx_chat_icon4"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                android:visibility="gone"
+                />
 
             <EditText
                 android:id="@+id/chat_content"
                 android:layout_width="match_parent"
                 android:layout_height="36dp"
                 android:layout_centerVertical="true"
-                android:layout_marginStart="-2dp"
+                android:layout_marginStart="10dp"
                 android:layout_marginEnd="5dp"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp"
                 android:layout_toStartOf="@id/chat_send"
                 android:layout_toEndOf="@id/chat_voice"
                 android:background="@drawable/b05" />

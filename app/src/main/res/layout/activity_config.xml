@@ -247,7 +247,6 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/tv_model_name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="模型"
@@ -255,6 +254,7 @@
                         android:textSize="@dimen/setting_start_font_size" />
 
                     <TextView
+                        android:id="@+id/tv_model_name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="设置模型"
@@ -439,6 +439,13 @@
                 </LinearLayout>
 
             </RelativeLayout>
+
+            <Button
+                android:id="@+id/bt_open_main"
+                style="@style/rec_top_btn"
+                android:background="@drawable/comment_red_btn"
+                android:text="去聊天"
+                />
 
         </LinearLayout>
 

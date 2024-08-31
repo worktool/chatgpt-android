@@ -44,7 +44,7 @@ object Config {
      * GPT模型
      */
     var gptModel: String
-        get() = SPUtils.getInstance().getString("gptModel", "gpt-3.5-turbo-16k")
+        get() = SPUtils.getInstance().getString("gptModel", "gpt-4o-mini")
         set(value) {
             SPUtils.getInstance().put("gptModel", value)
         }

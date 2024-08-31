@@ -30,13 +30,16 @@ class ConfigActivity : FragmentActivity() {
         rl_gpt_model.setOnClickListener { showModelSelectionDialog() }
         rl_donate.setOnClickListener { showDonateDialog() }
         rl_share.setOnClickListener { showShareDialog() }
+        bt_open_main.setOnClickListener {
+            finish()
+        }
         sw_use_context.isChecked = Config.useContext
         sw_use_context.setOnCheckedChangeListener(CompoundButton.OnCheckedChangeListener { buttonView, isChecked ->
             LogUtils.i("sw_use_context onCheckedChanged: $isChecked")
             Config.useContext = isChecked
         })
         tv_model_proxy.text = "当前代理：${Config.proxyAddress}"
-        tv_model_name.text = "模型（当前模型：${Config.gptModel}）"
+        tv_model_name.text = "当前模型：${Config.gptModel}"
     }
 
     private fun showProxyAddressSelectionDialog() {
@@ -129,7 +132,7 @@ class ConfigActivity : FragmentActivity() {
                 } else {
                     val selectedModel = items[which]
                     Config.gptModel = selectedModel.replace("（推荐）", "")
-                    tv_model_name.text = "模型（当前模型：${Config.gptModel}）"
+                    tv_model_name.text = "当前模型：${Config.gptModel}"
                     ToastUtils.showLong("已选择模型: ${Config.gptModel}")
 
                 }
@@ -149,7 +152,7 @@ class ConfigActivity : FragmentActivity() {
                 if (text != null) {
                     dialog.dismiss()
                     Config.gptModel = text.toString().trim()
-                    tv_model_name.text = "模型（当前模型：${Config.gptModel}）"
+                    tv_model_name.text = "当前模型：${Config.gptModel}"
                     ToastUtils.showLong("已选择模型: ${Config.gptModel}")
                 } else {
                     ToastUtils.showLong("请勿为空！")
