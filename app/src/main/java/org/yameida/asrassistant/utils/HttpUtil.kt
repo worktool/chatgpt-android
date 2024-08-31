@@ -49,7 +49,7 @@ object HttpUtil {
             override fun onResponse(call: Call, response: Response) {
                 try {
                     val responseBody = response.body()
-                    if (responseBody != null) {
+                    if (responseBody != null && response.code() == 200) {
                         val message = Message().apply {
                             role = "assistant"
                             content = ""
@@ -69,6 +69,8 @@ object HttpUtil {
                             line = bufferedReader.readLine()
                         }
                         callback.onCallBack(sb.toString(), true)
+                    } else {
+                        callback.onCallBack("接口请求失败，请检查模型配置！\n${response.body()?.string()}", true)
                     }
                 } catch (e: Exception) {
                     e.printStackTrace()

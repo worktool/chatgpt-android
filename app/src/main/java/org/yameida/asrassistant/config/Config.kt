@@ -35,7 +35,7 @@ object Config {
      * 模型代理地址
      */
     var proxyAddress: String
-        get() = SPUtils.getInstance().getString("proxyAddress", "https://api.openai.com")
+        get() = SPUtils.getInstance().getString("proxyAddress", "http://proxy.chat.carlife.host")
         set(value) {
             SPUtils.getInstance().put("proxyAddress", value)
         }

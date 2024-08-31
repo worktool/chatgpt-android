@@ -70,7 +70,7 @@ class ChatActivity : FragmentActivity() {
             }
         }
         initView()
-        requestAudioPermission()
+//        requestAudioPermission()
         if (Config.apiKey.isNullOrEmpty()) {
             startActivity(Intent(this, ConfigActivity::class.java))
         }
