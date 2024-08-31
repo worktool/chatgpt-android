@@ -2,11 +2,15 @@
 
 ## 应用简介
 
-本应用集成 ChatGPT API，使用模型为 gpt-3.5-turbo，项目代码为 Kotlin 语言开发的安卓应用。
+本应用集成 ChatGPT API，使用模型默认 gpt4o-mini，支持自定义代理和模型，项目代码为 Kotlin 语言开发的安卓应用。
 
 本应用旨在为开发者快速集成 ChatGPT 并将响应结果流式呈现在客户端，导入本应用到您的项目中以最快体验语音交互。
 
 人机交互的趋势已经到来，本应用框架也希望能帮助更多开发者快速集成 ChatGPT 体验到人机交互的乐趣！
+
+如果已经有 ChatGPT ApiKey，直接下载应用可在应用内配置。
+APP 下载地址：[https://cdn.asrtts.cn/uploads/apps/AI_Assistant/AI_Assistant_release_2.2.apk](https://cdn.asrtts.cn/uploads/apps/AI_Assistant/AI_Assistant_release_2.2.apk)
+
 
 ## 快速使用
 
@@ -31,9 +35,6 @@
   val createUtility = SpeechUtility.createUtility(this, "appid=" + "xxxxxx")
   详请参考科大讯飞文档中心
 ```
-
-如果已经有 ChatGPT ApiKey，直接下载应用可在应用内配置。
-APP 下载地址：https://github.com/worktool/chatgpt-android/releases/download/1.2.1/chatgpt-android1.2.1.apk
 
 ## 功能展示
 使用 OkHttp 进行流式请求 ChatGTP API 并即时更新客户端UI。
@@ -64,6 +65,8 @@ Email: gallonyin@163.com
 开发者交流群: 741127157
 
 ## 版本更新
+
+tag 2.2 2024-08-31 交互体验和提示优化
 
 tag 2.0 2024-08-31 支持模型代理和模型选择;支持修改头像
 
