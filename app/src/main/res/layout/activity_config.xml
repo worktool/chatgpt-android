@@ -54,6 +54,60 @@
                 android:textStyle="bold" />
 
             <RelativeLayout
+                android:id="@+id/rl_proxy_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/setting_start_padding"
+                android:paddingTop="@dimen/setting_vertical_padding"
+                android:paddingEnd="@dimen/setting_end_padding"
+                android:paddingBottom="@dimen/setting_vertical_padding">
+
+                <ImageView
+                    android:id="@+id/iv_rec_proxy_address_"
+                    android:layout_width="@dimen/setting_start_image_width"
+                    android:layout_height="@dimen/setting_start_image_width"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/settings_language" />
+
+                <TextView
+                    android:id="@+id/tv_select_proxy_address"
+                    android:layout_width="@dimen/setting_end_font_width"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/setting_end_start_padding"
+                    android:textColor="@color/float_time_color"
+                    android:textSize="@dimen/setting_end_font_size"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/setting_start_padding"
+                    android:layout_toStartOf="@id/tv_select_proxy_address"
+                    android:layout_toEndOf="@id/iv_rec_proxy_address_"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="模型代理"
+                        android:textColor="@color/color_333333"
+                        android:textSize="@dimen/setting_start_font_size" />
+
+                    <TextView
+                        android:id="@+id/tv_model_proxy"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="选择模型代理地址（可选）"
+                        android:textColor="@color/color_999999"
+                        android:textSize="@dimen/setting_end_font_size" />
+
+                </LinearLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
                 android:id="@+id/rl_api_key"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -92,14 +146,14 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="ChatGPT API_KEY"
+                        android:text="API_KEY"
                         android:textColor="@color/color_333333"
                         android:textSize="@dimen/setting_start_font_size" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="设置ChatGPT API_KEY"
+                        android:text="设置API_KEY（如sk-xxx）"
                         android:textColor="@color/color_999999"
                         android:textSize="@dimen/setting_end_font_size" />
 
@@ -120,7 +174,7 @@
                     android:layout_width="@dimen/setting_start_image_width"
                     android:layout_height="@dimen/setting_start_image_width"
                     android:layout_centerVertical="true"
-                    android:src="@drawable/settings_fps" />
+                    android:src="@drawable/settings_language" />
 
                 <Switch
                     android:id="@+id/sw_use_context"
@@ -170,7 +224,7 @@
                     android:layout_width="@dimen/setting_start_image_width"
                     android:layout_height="@dimen/setting_start_image_width"
                     android:layout_centerVertical="true"
-                    android:src="@drawable/settings_orientation" />
+                    android:src="@drawable/settings_language" />
 
                 <TextView
                     android:id="@+id/tv_select_gpt_model"
@@ -193,16 +247,17 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/tv_model_name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="GPT模型"
+                        android:text="模型"
                         android:textColor="@color/color_333333"
                         android:textSize="@dimen/setting_start_font_size" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="设置GPT模型"
+                        android:text="设置模型"
                         android:textColor="@color/color_999999"
                         android:textSize="@dimen/setting_end_font_size" />
 

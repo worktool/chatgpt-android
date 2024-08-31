@@ -32,6 +32,15 @@ object Config {
         }
 
     /**
+     * 模型代理地址
+     */
+    var proxyAddress: String
+        get() = SPUtils.getInstance().getString("proxyAddress", "https://api.openai.com")
+        set(value) {
+            SPUtils.getInstance().put("proxyAddress", value)
+        }
+
+    /**
      * GPT模型
      */
     var gptModel: String

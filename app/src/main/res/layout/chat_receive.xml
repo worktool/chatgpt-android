@@ -41,7 +41,7 @@
             android:text="一叶知秋"
             android:textSize="11sp" />
 
-        <EditText
+        <TextView
             android:id="@+id/tv_receive_content"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

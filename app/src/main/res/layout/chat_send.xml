@@ -22,14 +22,14 @@
         android:layout_margin="10dp">
 
         <ImageView
-            android:layout_alignParentEnd="true"
             android:id="@+id/iv_send_picture"
+            android:layout_alignParentEnd="true"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:background="@drawable/icon"
             android:scaleType="centerCrop" />
 
-        <EditText
+        <TextView
             android:id="@+id/tv_send_content"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -44,7 +44,8 @@
             android:editable="false"
             android:textIsSelectable="true"
             android:textColor="#191919"
-            android:text="hello" />
+            android:text="hello"
+            android:textSize="15sp" />
     </RelativeLayout>
 
 </LinearLayout>

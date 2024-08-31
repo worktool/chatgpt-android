@@ -15,9 +15,9 @@ import kotlin.collections.ArrayList
 
 object HttpUtil {
 
-    val history: ArrayList<Message> = arrayListOf()
-    val gptRequestJson = hashMapOf(
-        Pair("model", "gpt-3.5-turbo-16k"),
+    private val history: ArrayList<Message> = arrayListOf()
+    private val gptRequestJson = hashMapOf(
+        Pair("model", Config.gptModel),
         Pair("stream", true),
         Pair("messages", history)
     )
@@ -26,7 +26,7 @@ object HttpUtil {
      * ChatGPT
      */
     fun chat(send: String, callback: CallBack) {
-        val url = "http://proxy.chat.carlife.host/v1/chat/completions"
+        val url = Config.proxyAddress + "/v1/chat/completions"
         val apiKey = "Bearer ${Config.apiKey}"
         if (!Config.useContext) {
             history.clear()
@@ -35,6 +35,7 @@ object HttpUtil {
             role = "user"
             content = send
         })
+        gptRequestJson["model"] = Config.gptModel
         LogUtils.d("gptRequestJson", GsonUtils.toJson(gptRequestJson))
         val body = RequestBody.create(MediaType.parse("application/json"), GsonUtils.toJson(gptRequestJson))
         val request: Request = Request.Builder().url(url).method("POST", body)

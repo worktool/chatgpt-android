@@ -18,7 +18,7 @@ class MyApplication : Application() {
         Utils.init(this)
         GsonUtils.setGsonDelegate(Gson())
         //初始化友盟统计
-        val key = "6284a3a3d024421570f97c3c"
+        val key = "66d2a611cac2a664de9e22d2"
         val channel = "main_channel"
         UMConfigure.preInit(this, key, channel)
         //判断是否同意隐私协议，uminit为1时为已经同意，直接初始化umsdk

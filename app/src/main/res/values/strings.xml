@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ASR Assistant</string>
+    <string name="app_name">AI Assistant</string>
 
     <string name="accessibility_desc">WorkTool</string>
     <string name="tips">如果需要使用或停止该应用，应用需打开 无障碍服务 进行权限设置</string>
